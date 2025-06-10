@@ -1,3 +1,6 @@
+#Importera komprimeringsmodulen som behövs senare
+Import-Module .\komprimering.psm1
+
 #Definera vad det är som skall kopieras
 $source = "C:\Projekt-Exempel\BusinessProgram"
 
@@ -17,6 +20,9 @@ New-Item -Path $dest -ItemType Directory -Force
 #Och kopiera över innehållet från källan till backupen. -Recurse ser till att alla undermappar kommer med
 try {
     Copy-Item "$source\*" -Destination $dest -Recurse
+        #Anropa komprimeringsmodulen
+        . .\komprimering.psm1
+        Compress-Backup -FolderToCompress $dest    
     Write-Host "Backup lyckades!"
 } catch {
     Write-Warning "BACKUP MISSLYCKADES! Kontakta IT!"
