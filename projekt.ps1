@@ -1,6 +1,7 @@
 #Importera komprimeringsmodulen som behövs senare
 Import-Module .\komprimering.psm1
 
+#Självanteckning: kan jag få programmet att läsa dessa två nedanstående variabler från en konfig-fil istället?
 #Definera vad det är som skall kopieras
 $source = "C:\Projekt-Exempel\BusinessProgram"
 
@@ -21,7 +22,6 @@ New-Item -Path $dest -ItemType Directory -Force
 try {
     Copy-Item "$source\*" -Destination $dest -Recurse
         #Anropa komprimeringsmodulen
-        . .\komprimering.psm1
         Compress-Backup -FolderToCompress $dest    
     Write-Host "Backup lyckades!"
 } catch {
