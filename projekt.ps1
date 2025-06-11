@@ -1,12 +1,9 @@
 #Importera komprimeringsmodulen som behövs senare
 Import-Module .\komprimering.psm1
 
-#Självanteckning: kan jag få programmet att läsa dessa två nedanstående variabler från en konfig-fil istället?
-#Definera vad det är som skall kopieras
-$source = "C:\Projekt-Exempel\BusinessProgram"
-
-#Definera vart backupen skall sparas
-$backupLocation = "C:\Projekt-Exempel\NetworkDriveBackup"
+#Läs konfig-filen
+$configPath = "config.json"
+$config = Get-Content $configPath | ConvertFrom-Json
 
 #Spara det aktuella användarnamnet och datumet
 $user = $env:USERNAME
