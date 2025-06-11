@@ -8,6 +8,6 @@ function Compress-Backup {
         Compress-Archive -Path "$folderToCompress" -DestinationPath $zipFile -Force
         Write-Host "Mappen komprimerades till $zipFile"
     } catch {
-        Write-Host "Kunde inte komprimera mappen!"
+        Write-Host "Kunde inte komprimera mappen! Kontakta IT-avdelningen!"
     }
 }

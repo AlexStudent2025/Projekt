@@ -25,5 +25,5 @@ try {
         Compress-Backup -FolderToCompress $dest    
     Write-Host "Backup lyckades!"
 } catch {
-    Write-Warning "BACKUP MISSLYCKADES! Kontakta IT!"
+    Write-Warning "BACKUP MISSLYCKADES! Kontakta IT-avdelningen!"
 }
